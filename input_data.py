@@ -37,7 +37,7 @@ from tensorflow.python.platform import gfile
 from tensorflow.python.util import compat
 
 #from python_speech_features import fbank
-from speech.mel_ops import linear_to_mel_weight_matrix
+#from speech.mel_ops import linear_to_mel_weight_matrix
 
 MAX_NUM_WAVS_PER_CLASS = 2 ** 27 - 1  # ~134M
 SILENCE_LABEL = '_silence_'
@@ -468,11 +468,11 @@ class GSCDataset(Dataset):
         background_clamp = tf.clip_by_value(background_add, -1.0, 1.0)
         # Run the spectrogram and MFCC ops to get a 2D 'fingerprint' of the audio.
 
-        mel_bias_ = linear_to_mel_weight_matrix(num_mel_bins=model_settings['dct_coefficient_count'],
-            num_spectrogram_bins=int(2048/2+1),
-            sample_rate=model_settings['sample_rate'],
-            lower_edge_hertz=100,
-            upper_edge_hertz=4800)
+#         mel_bias_ = linear_to_mel_weight_matrix(num_mel_bins=model_settings['dct_coefficient_count'],
+#             num_spectrogram_bins=int(2048/2+1),
+#             sample_rate=model_settings['sample_rate'],
+#             lower_edge_hertz=100,
+#             upper_edge_hertz=4800)
             #warp_factor=self.warp_factor_placeholder_)
 
         # spectrogram = tf.abs(tf.contrib.signal.stft(tf.transpose(background_clamp),
